@@ -10,4 +10,17 @@ router.get('/', (req, res) => {
     .catch(err => res.send(err))
 });
 
+router.get('/dept', (req, res) => {
+    console.log(req.user.department);
+    const department = req.user.department;
+
+    Users.findDept(department)
+    .then(user => {
+        res.status(200).json(user)
+    })
+    .catch(err => {
+        res.send(err)
+    })
+})
+
 module.exports = router;

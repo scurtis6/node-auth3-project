@@ -22,6 +22,7 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
+    console.log(req.body)
     let { username, password } = req.body;
 
     Users.findBy({ username })
@@ -44,7 +45,8 @@ function generateToken(user) {
     const payload = {
         subject: user.id,
         username: user.username,
-        role: user.department || 'user',
+        department: user.department,
+        // role: user.role || 'user',
     };
 
     const options = {

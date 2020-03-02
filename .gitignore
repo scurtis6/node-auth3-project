@@ -1,2 +1,5 @@
 .DS_Store
 node_modules/
+
+# SQLite3 Databases
+*.db3
